@@ -1,9 +1,13 @@
 # Created by lu0ng
 
-ĐIỀU KIỆN YÊU CẦU ĐỂ SỬ DỤNG : 
+ĐIỀU KIỆN YÊU CẦU ĐỂ SỬ DỤNG :
+
 3 VM (ubuntu server 20.04) với 4-8GB RAM mỗi máy
+
 Mỗi VM dư ít nhất 15GB Disk trước khi chạy
+
 Cấu hình IP tĩnh cho tất cả các VM trong cụm (Hướng dẫn tại đây)
+
 Ansible (tại VM master trong cụm hoặc ngoài máy thật)
 
 SCRIPT NÀY SẼ CÀI ĐẶT VÀ CẤU HÌNH
@@ -13,7 +17,9 @@ Elasticsearch Cluster
 Kibana
 
 CÁC BƯỚC SỬ DỤNG
+
 0: Xác định IP trên các VM của bạn rồi thay thế vào thư mục hosts.ini(IP & PassUser) và setup-full.yml(IP & NameUser)
+
 1: ssh-keygen -t rsa
 
 2: Copy qua 3 VM
