@@ -22,7 +22,7 @@ CÁC BƯỚC SỬ DỤNG
 
 <img width="521" alt="Screen Shot 2024-09-22 at 02 16 46" src="https://github.com/user-attachments/assets/e357e77e-8cb5-45b2-b686-ef511822807f">
 
-# 1 và 5 thay đổi thành tên user của bạn, 2 là ip master , 3 là ip node 1 , 4 là ip node 2
+# Với file setup-full.yml : 1 và 5 thay đổi thành tên user của bạn - 2 là ip master - 3 là ip node 1 - 4 là ip node 2
 
 <img width="528" alt="Screen Shot 2024-09-22 at 02 16 49" src="https://github.com/user-attachments/assets/a10e3697-294b-4e37-8fe4-79ed39232b52">
 
