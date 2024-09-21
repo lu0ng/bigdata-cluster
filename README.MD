@@ -37,5 +37,5 @@ ansible-playbook -i hosts.ini setup-full.yml
 - hdfs dfs -mkdir /spark-logs
 - spark/sbin/start-history-server.sh
 
-# Chia sẻ nhớ ghi nguồn (lu0ng.online) ! Xin cảm ơn
+# Chia sẻ nhớ ghi nguồn ! Xin cảm ơn
 # Gmail : lvl.music.99@gmail.com
