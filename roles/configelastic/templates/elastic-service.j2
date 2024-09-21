@@ -1,0 +1,11 @@
+[Unit]
+Description=Elastic Search Service
+After=network.target
+[Service]
+User={{ remote_user }}
+Group={{ remote_user }}
+Type=simple
+WorkingDirectory=/home/{{ remote_user }}/elasticsearch-7.15.1/
+ExecStart=/bin/bash -c 'bin/elasticsearch'
+[Install]
+WantedBy=multi-user.target

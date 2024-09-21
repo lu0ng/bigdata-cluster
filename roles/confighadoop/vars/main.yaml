@@ -1,0 +1,20 @@
+hadoop_version: "3.2.1"
+# hadoop-env
+#hadoop-path-config
+hd_path: "/home/{{ remote_user }}/hadoop/etc/hadoop"
+coresite_config_path: "{{ hd_path }}/core-site.xml"
+hdfssite_config_path: "{{ hd_path }}/hdfs-site.xml"
+mapredsite_config_path: "{{ hd_path }}/mapred-site.xml"
+yarnsite_config_path: "{{ hd_path }}/yarn-site.xml"
+workers_config_path: "{{ hd_path }}/workers"
+
+config_spark: /home/{{ remote_user }}/spark/conf/spark-defaults.conf
+
+#ENV 
+profile: /home/{{ remote_user }}/.profile
+bashrc: /home/{{ remote_user }}/.bashrc
+
+#path hdfs
+hdfs_path: /home/{{ remote_user }}/hadoop/bin/hdfs
+#path spark 
+spark_history_path: /home/{{ remote_user }}/spark/sbin/start-history-server.sh

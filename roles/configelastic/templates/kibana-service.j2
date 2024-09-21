@@ -1,0 +1,11 @@
+[Unit]
+Description=Kibana Service
+After=network.target
+[Service]
+User={{ remote_user }}
+Group={{ remote_user }}
+Type=simple
+WorkingDirectory=/home/{{ remote_user }}/kibana-7.15.1-linux-x86_64/
+ExecStart=/bin/bash -c 'bin/kibana'
+[Install]
+WantedBy=multi-user.target

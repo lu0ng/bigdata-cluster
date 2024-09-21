@@ -1,0 +1,5 @@
+--- 
+elasticsearch_version: "7.15.1"
+elasticsearch_config_path: "/home/{{ remote_user }}/elasticsearch-{{ elasticsearch_version }}/config/elasticsearch.yml"
+kibana_version: "7.15.1"
+kibana_config_path: "/home/{{ remote_user }}/kibana-{{ kibana_version }}-linux-x86_64/config/kibana.yml"

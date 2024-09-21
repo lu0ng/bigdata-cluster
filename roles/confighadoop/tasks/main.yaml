@@ -1,0 +1,103 @@
+---
+- name: Update hosts file
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item }}"
+  loop:
+    - "{{ master_ip }} master"
+    - "{{ node1_ip }} node1"
+    - "{{ node2_ip }} node2"
+  become: yes 
+
+- name: Update fix
+  command: sudo sed -i '/127.0.1.1/s/^/#/' /etc/hosts
+
+- name: Install Java
+  apt:
+    update_cache: yes 
+    name: openjdk-8-jdk
+    state: present
+  become: yes  
+
+- name: setup hadoop
+  shell: | 
+    wget https://archive.apache.org/dist/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz
+    tar -xzvf hadoop-3.2.1.tar.gz 
+    mv hadoop-3.2.1 hadoop
+    echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre' | tee -a /home/{{ remote_user }}/hadoop/etc/hadoop/hadoop-env.sh
+  args:
+    creates: /home/{{ remote_user }}/hadoop
+  become: no
+
+- name: Setup ENV in .profile
+  shell: |
+    echo 'PATH=/home/{{ remote_user }}/hadoop/bin:/home/{{ remote_user }}/hadoop/sbin:$PATH' | tee -a /home/{{ remote_user }}/.profile
+    echo 'PATH=/home/{{ remote_user }}/spark/bin:$PATH' | tee -a /home/{{ remote_user }}/.profile
+    echo 'export HADOOP_CONF_DIR=/home/{{ remote_user }}/hadoop/etc/hadoop' | tee -a /home/{{ remote_user }}/.profile
+    echo 'export SPARK_HOME=/home/{{ remote_user }}/spark' | tee -a /home/{{ remote_user }}/.profile
+    echo 'export LD_LIBRARY_PATH=/home/{{ remote_user }}/hadoop/lib/native:$LD_LIBRARY_PATH' | tee -a /home/{{ remote_user }}/.profile
+
+- name: Setup ENV in .bashrc
+  shell: |
+   echo 'export HADOOP_HOME=/home/{{ remote_user }}/hadoop' | tee -a /home/{{ remote_user }}/.bashrc
+   echo 'export PATH=${PATH}:${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin' | tee -a /home/{{ remote_user }}/.bashrc
+
+- name: Source .bashrc
+  shell: |
+    /bin/bash -c "source /home/{{ remote_user }}/.bashrc"
+
+- name: Source .profile
+  shell: |
+    /bin/bash -c "source /home/{{ remote_user }}/.profile"
+
+
+- name: Deploy core-site for all server
+  template:
+    src: "core-site.j2"
+    dest: "{{ coresite_config_path }}"
+
+- name: Deploy hdfs-site for all server 
+  template:
+    src: "hdfs-site.j2"
+    dest: "{{ hdfssite_config_path }}"
+
+- name: Deploy mapred-site for all server
+  template: 
+    src: "mapred-site.j2"
+    dest: "{{ mapredsite_config_path }}"
+
+- name: Deploy yarn-site for all server
+  template: 
+    src: "yarn-site.j2"
+    dest: "{{ yarnsite_config_path }}"
+
+- name: Deploy worker for all server
+  template: 
+    src: "worker.j2"
+    dest: "{{ workers_config_path }}"
+
+- name: create data & namenode
+  command: mkdir -p /home/{{ remote_user }}/data/dataNode1 && mkdir -p /home/{{ remote_user }}/data/nameNode1
+
+- name : setup spark
+  shell: | 
+    wget https://dlcdn.apache.org/spark/spark-3.4.3/spark-3.4.3-bin-hadoop3.tgz
+    tar -xzvf spark-3.4.3-bin-hadoop3.tgz
+    mv spark-3.4.3-bin-hadoop3 spark
+  args:
+    creates: /home/{{ remote_user }}/spark
+  become: no
+  when: "'master' in group_names"
+
+- name: Deploy spark conf for all server
+  template: 
+    src: "spark-conf.j2"
+    dest: "{{ config_spark }}"
+  when: "'master' in group_names"
+
+# - name: spark log create 
+#   shell : |
+#     {{ hdfs_path }} dfs -mkdir /spark-logs
+#     {{ spark_history_path }}
+#   when: "'master' in group_names"
+

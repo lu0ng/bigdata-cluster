@@ -1,0 +1,7 @@
+cluster.name: my-app
+node.name: node1
+network.host: {{ node1_ip }}
+http.port: 9200
+discovery.seed_hosts: [{{ master_ip }}, {{ node1_ip }}, {{ node2_ip }}]
+cluster.initial_master_nodes: [{{ master_ip }}]
+xpack.security.enabled: false
