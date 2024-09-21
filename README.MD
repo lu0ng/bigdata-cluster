@@ -11,7 +11,7 @@ Cấu hình IP tĩnh cho tất cả các VM trong cụm (Hướng dẫn tại đ
 Ansible (tại VM master trong cụm hoặc ngoài máy thật)
 
 SCRIPT NÀY SẼ CÀI ĐẶT VÀ CẤU HÌNH
-Hadoop Cluster (3.2.1) - 1 namenode và 2 datanode
+Hadoop Cluster : (3.2.1) - 1 namenode và 2 datanode
 Spark (3.4.3)
 Elasticsearch Cluster
 Kibana
@@ -19,6 +19,14 @@ Kibana
 CÁC BƯỚC SỬ DỤNG
 
 0: Xác định IP trên các VM của bạn rồi thay thế vào thư mục hosts.ini(IP & PassUser) và setup-full.yml(IP & NameUser)
+
+![1] (https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/460919369_1059835345641409_6313674513609593498_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=HPBzpfE-_AAQ7kNvgH1lT-P&_nc_ht=scontent.fhan2-4.fna&_nc_gid=ATk07Q0vNXGTqS7yyryyNjt&oh=00_AYAE94Bv__LvhT3TteL-QqZ9gs2iFQ5SMBhVDbYPa7m_iQ&oe=66F4F4CD)
+
+# 1 và 5 thay đổi thành tên user của bạn, 2 là ip master , 3 là ip node 1 , 4 là ip node 2
+
+![2] (https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/460823016_1059835308974746_4284138404051289669_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=WBNl8C2ZY08Q7kNvgEnHTlv&_nc_ht=scontent.fhan2-3.fna&_nc_gid=A-zD6Pfdcp44BqwZOENmsAv&oh=00_AYC4oj4CgeyoZesMnkQEtd56dZhY7aVDL3O9mqYFZhknAQ&oe=66F4FFD5)
+
+# Thay đổi phần ansible_host cùng với ảnh bên trên, phần ansible_become_pass thay đổi thành mật khẩu của user đó
 
 1: ssh-keygen -t rsa
 
