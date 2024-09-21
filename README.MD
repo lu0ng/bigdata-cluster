@@ -6,10 +6,10 @@ Mỗi VM dư ít nhất 15GB Disk trước khi chạy
 Cấu hình IP tĩnh cho tất cả các VM trong cụm (Hướng dẫn tại đây)
 Ansible (tại VM master trong cụm hoặc ngoài máy thật)
 
-SCRIPT NÀY SẼ LÀM NHỮNG GÌ ?
+SCRIPT NÀY SẼ CÀI ĐẶT VÀ CẤU HÌNH
 Hadoop Cluster (3.2.1) - 1 namenode và 2 datanode
-Spark 3.4.3 - tại server master
-Elasticsearch Cluster - tại cả 3 server
+Spark (3.4.3)
+Elasticsearch Cluster
 Kibana
 
 CÁC BƯỚC SỬ DỤNG
