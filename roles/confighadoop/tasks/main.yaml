@@ -11,7 +11,8 @@
 
 - name: Update fix
   command: sudo sed -i '/127.0.1.1/s/^/#/' /etc/hosts
-
+  become: yes
+  
 - name: Install Java
   apt:
     update_cache: yes 

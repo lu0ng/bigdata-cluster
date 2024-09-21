@@ -5,7 +5,7 @@
     master_ip: "192.168.16.140"
     node1_ip: "192.168.16.141"
     node2_ip: "192.168.16.142"
-
+    remote_user: "l1"
   roles: 
     - confighadoop
     - configelastic
