@@ -35,7 +35,7 @@ CÁC BƯỚC SỬ DỤNG
  ssh-copy-id <user>@<IP Node1>
  ssh-copy-id <user>@<IP Node2>
 
- 3: Chạy lệnh dưới và nhâm nhi 1 cốc CF cho tới khi hoàn tất :V
+ 3: Chạy lệnh và nhâm nhi 1 cốc CF cho tới khi hoàn tất :V
 ansible-playbook -i hosts.ini setup-full.yml
 
 4: tắt shell hiện tại và mở lên 1 shell mới sau đó dùng lệnh
