@@ -20,11 +20,11 @@ CÁC BƯỚC SỬ DỤNG
 
 0: Xác định IP trên các VM của bạn rồi thay thế vào thư mục hosts.ini(IP & PassUser) và setup-full.yml(IP & NameUser)
 
-![1] (https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/460919369_1059835345641409_6313674513609593498_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=HPBzpfE-_AAQ7kNvgH1lT-P&_nc_ht=scontent.fhan2-4.fna&_nc_gid=ATk07Q0vNXGTqS7yyryyNjt&oh=00_AYAE94Bv__LvhT3TteL-QqZ9gs2iFQ5SMBhVDbYPa7m_iQ&oe=66F4F4CD)
+<img width="521" alt="Screen Shot 2024-09-22 at 02 16 46" src="https://github.com/user-attachments/assets/e357e77e-8cb5-45b2-b686-ef511822807f">
 
 # 1 và 5 thay đổi thành tên user của bạn, 2 là ip master , 3 là ip node 1 , 4 là ip node 2
 
-![2] (https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/460823016_1059835308974746_4284138404051289669_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=WBNl8C2ZY08Q7kNvgEnHTlv&_nc_ht=scontent.fhan2-3.fna&_nc_gid=A-zD6Pfdcp44BqwZOENmsAv&oh=00_AYC4oj4CgeyoZesMnkQEtd56dZhY7aVDL3O9mqYFZhknAQ&oe=66F4FFD5)
+<img width="528" alt="Screen Shot 2024-09-22 at 02 16 49" src="https://github.com/user-attachments/assets/a10e3697-294b-4e37-8fe4-79ed39232b52">
 
 # Thay đổi phần ansible_host cùng với ảnh bên trên, phần ansible_become_pass thay đổi thành mật khẩu của user đó
 
