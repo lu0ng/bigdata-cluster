@@ -10,6 +10,14 @@ Cấu hình IP tĩnh cho tất cả các VM trong cụm (Hướng dẫn tại đ
 
 Ansible (tại VM master trong cụm hoặc ngoài máy thật)
 
+$ sudo apt update
+
+$ sudo apt install software-properties-common
+
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+
+$ sudo apt install ansible
+
 SCRIPT NÀY SẼ CÀI ĐẶT VÀ CẤU HÌNH
 Hadoop Cluster : (3.2.1) - 1 namenode và 2 datanode
 Spark (3.4.3)
