@@ -40,11 +40,11 @@ CÁC BƯỚC SỬ DỤNG
 
 2: Copy qua 3 VM
 
-ssh-copy-id <user> @ <IP Master>
+ssh-copy-id [user] @ [IP Master]
 
-ssh-copy-id <user> @ <IP Node1>
+ssh-copy-id [user] @ [IP Node1]
 
-ssh-copy-id <user> @ <IP Node2>
+ssh-copy-id [user] @ [IP Node2]
 
  3: Chạy lệnh và nhâm nhi 1 cốc CF cho tới khi hoàn tất :V
 ansible-playbook -i hosts.ini setup-full.yml
