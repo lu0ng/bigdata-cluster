@@ -72,17 +72,12 @@
     src: "yarn-site.j2"
     dest: "{{ yarnsite_config_path }}"
 
-- name: Deploy worker for all server
-  template: 
-    src: "worker.j2"
-    dest: "{{ workers_config_path }}"
 
 - name: create data & namenode
   command: mkdir -p /home/{{ remote_user }}/data/dataNode1 && mkdir -p /home/{{ remote_user }}/data/nameNode1
 
 - name : setup spark
   shell: | 
-    wget https://dlcdn.apache.org/spark/spark-3.4.3/spark-3.4.3-bin-hadoop3.tgz
     tar -xzvf spark-3.4.3-bin-hadoop3.tgz
     mv spark-3.4.3-bin-hadoop3 spark
   args:
